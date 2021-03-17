@@ -16,7 +16,7 @@ class myService {
     }
     this.proto = proto
     // handler your arguments here
-    if (arguments[0]) console.log(arguments)
+    if (args) {}
   }
 
   init() {}
