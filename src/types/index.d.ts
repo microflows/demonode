@@ -2,7 +2,7 @@ export default interface mfNode {
     proto: object
     name: string
     version: string
-    urls: string
+    urls: Array<string>
     author: string
     email: string
     description: string

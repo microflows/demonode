@@ -37,7 +37,7 @@ interface mfNode {
     email: string                 ## your email to identify who you are
     name: string                  ## your node name
     version: string               ## version
-    urls: string                  ## release bundle url list or github repo url
+    urls: Array<string>           ## release bundle url list or github repo url
     author: string                ## your name
     description: string           ## code description
     icon: string                  ## code icon url (png)
