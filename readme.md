@@ -37,11 +37,11 @@ interface mfNode {
     email: string                 ## your email to identify who you are
     name: string                  ## your node name
     version: string               ## version
-    urls: Array<string>           ## release bundle url list or github repo url
+    urls: string[]                ## release bundle url list or github repo url
     author: string                ## your name
     description: string           ## code description
     icon: string                  ## code icon url (png)
-    categories: Array<string>     ## categories for human
+    categories: sting[]           ## categories for human
     resources: object             ## resources like github page or project website
     proto: object                 ## rpc proto object
     init(): void                  ## will be executed at the first startup
