@@ -71,7 +71,9 @@ function gitPush(branchs) {
 
   // ensure version
   if (compareVersions(version, currentVersion) !== 1) {
-    shell.echo('\x1B[31m[Error] The publish version must > the existing version!\x1B[0m')
+    shell.echo(
+      '\x1B[31m[Error] The publish version must > the existing version!\x1B[0m'
+    )
     shell.exit(1)
   }
 
@@ -98,17 +100,19 @@ function gitPush(branchs) {
     // Switch to target branch
     shell.echo('\x1B[36mSwitch to ' + branch + ' branch:\x1B[0m')
     shell.exec('git config advice.addIgnoredFile false')
-    if (shell.exec('git checkout ' + branch).code !== 0) {
-      if (
-        shell.exec(
-          'git switch -c ' +
-            branch +
-            ' && git remote add ' +
-            branch +
-            ' ' +
-            git + ' && git tag v' + version
-        ).code !== 0
-      ) {
+    if (
+      shell.exec(
+        'git switch -c ' +
+          branch +
+          ' && git remote add ' +
+          branch +
+          ' ' +
+          git +
+          ' && git tag v' +
+          version
+      ).code !== 0
+    ) {
+      if (shell.exec('git checkout ' + branch).code !== 0) {
         shell.exit(1)
       }
     }
@@ -118,7 +122,9 @@ function gitPush(branchs) {
     shell.echo('\x1B[36mMerge master to ' + branch + ' branch:\x1B[0m')
     if (
       shell.exec(
-        'git merge master && git push --set-upstream origin '+branch+' --tags'
+        'git merge master && git push --set-upstream origin ' +
+          branch +
+          ' --tags'
       ).code !== 0
     ) {
       shell.exec('git checkout ' + currentBranch)
@@ -132,7 +138,9 @@ function gitPush(branchs) {
     shell.echo('\x1B[36mBack to ' + currentBranch + ' branch:\x1B[0m')
     shell.exec('git checkout ' + currentBranch)
     shell.echo()
-    shell.echo('\x1B[32m>>> Push to ' + branch + ' branch success! <<<\n\x1B[0m')
+    shell.echo(
+      '\x1B[32m>>> Push to ' + branch + ' branch success! <<<\n\x1B[0m'
+    )
   })
 
   shell.mv('release', 'build')
