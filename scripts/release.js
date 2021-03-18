@@ -42,6 +42,7 @@ if (git.indexOf('http') !== -1)
     '\x1B[33m[Warning] Your are using http git repo url, we recommand ssh!\nTrun to: https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh \n\x1B[0m'
   )
 const commitMessage = name + ': ' + version
+const releaseBranchName = ['publish']
 
 // read config
 const config = require('../config')
@@ -123,7 +124,7 @@ function gitPush(branchs) {
     if (
       shell.exec(
         'git merge master && git push --set-upstream ' +
-          branch +
+          branch + ' ' + branch +
           ' --tags'
       ).code !== 0
     ) {
@@ -154,7 +155,7 @@ function gitPush(branchs) {
   shell.echo()
 }
 
-gitPush(['publish'])
+gitPush(releaseBranchName)
 
 // upload metadata todo
 shell.echo('\x1B[36mUpload metadata:\x1B[0m')
@@ -172,7 +173,7 @@ shell.echo(
   '\x1B[32mAnd this is a rolling update address, use it with caution:\x1B[0m' +
     '\n\t' +
     metadata.urls
-      .map((url) => url.replace('@' + version, '@release'))
+      .map((url) => url.replace('@' + version, '@'+releaseBranchName[0]))
       .join('\n') +
     '\n'
 )
