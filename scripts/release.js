@@ -22,8 +22,8 @@ shell.echo()
 
 // ensure builded
 if (!fs.existsSync('build')) {
-  shell.echo('\x1B[31m[Error] You should run build before publish!\x1B[0m')
-  shell.exit(1)
+  shell.echo('\x1B[33mAuto run build...\x1B[0m')
+  shell.exec('npm run build')
 }
 
 // read metadata
