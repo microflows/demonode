@@ -24,6 +24,7 @@ shell.echo()
 if (!fs.existsSync('build')) {
   shell.echo('\x1B[33mAuto run build...\x1B[0m')
   shell.exec('npm run build')
+  shell.echo('\x1B[36m\nStart to release...\n\x1B[0m')
 }
 
 // read metadata
