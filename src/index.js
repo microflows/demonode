@@ -4,15 +4,15 @@ import proto from "./hello.proto"
 class myService {
   constructor(...args) {
     this.email = "gonorth@qq.com"
-    this.name = "hello"
+    this.name = "mfNode.js"
     this.version = "0.0.2"
-    this.urls = ["https://github.com/microflows/mfNode"]
+    this.urls = ["https://github.com/microflows/mfNode.js"]
     this.author = ""
     this.description = ""
     this.icon = ""
     this.categories = ["demo"]
     this.resources = {
-      "git":"https://github.com/microflows/mfNode"
+      "git":"https://github.com/microflows/mfNode.js"
     }
     this.proto = proto
     // handler your arguments here

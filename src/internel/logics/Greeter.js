@@ -1,11 +1,11 @@
-/** @SayHello {hello} [say hello to world] */
+/** @SayHello {hello} [say hello to world] !*/
 function sayHello(ctx) {
     // logic begin
     ctx.res = { message: "Hello " + ctx.req.name }
     // logic end
 }
 
-/** @SayHi {hi} say [hello to world] */
+/** @SayHi {hi} say [hello to world] !*/
 function sayHi(ctx) {
     // logic begin
     ctx.res = { message: "Hi " + ctx.req.name }
