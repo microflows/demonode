@@ -101,7 +101,7 @@ function gitPush(branchs) {
     if (shell.exec('git checkout ' + branch).code !== 0) {
       if (
         shell.exec(
-          'git checkout -b ' +
+          'git switch -c ' +
             branch +
             ' && git remote add ' +
             branch +
