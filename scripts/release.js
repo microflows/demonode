@@ -106,7 +106,7 @@ function gitPush(branchs) {
             ' && git remote add ' +
             branch +
             ' ' +
-            git + ' && git tag release'
+            git + ' && git tag v' + version
         ).code !== 0
       ) {
         shell.exit(1)
@@ -146,7 +146,7 @@ function gitPush(branchs) {
   shell.echo()
 }
 
-gitPush(['release', metadata.version])
+gitPush(['release'])
 
 // upload metadata todo
 shell.echo('\x1B[36mUpload metadata:\x1B[0m')

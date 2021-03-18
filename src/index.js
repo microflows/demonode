@@ -5,7 +5,7 @@ class myService {
   constructor(...args) {
     this.email = "gonorth@qq.com"
     this.name = "hello"
-    this.version = "0.0.1"
+    this.version = "0.0.2"
     this.urls = ["https://github.com/microflows/mfNode"]
     this.author = ""
     this.description = ""
