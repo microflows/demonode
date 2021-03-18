@@ -18,12 +18,6 @@ const currentBranch = shell
   .exec('git branch --show-current')
   .toString()
   .replace('\n', '')
-if (currentBranch === 'release') {
-  shell.echo(
-    '\x1B[31m[Error] You should not dev in release branch! Please switch to your default branch!\x1B[0m'
-  )
-  shell.exit(1)
-}
 shell.echo()
 
 // ensure builded
@@ -96,6 +90,12 @@ function gitPush(branchs) {
   shell.echo()
 
   branchs.forEach((branch) => {
+    if (currentBranch === branch) {
+      shell.echo(
+        '\x1B[31m[Error] You should not dev in '+branch+' branch! Please switch to your default branch!\x1B[0m'
+      )
+      shell.exit(1)
+    }
     shell.echo('\x1B[34m>>> Push to ' + branch + ' branch <<<\n\x1B[0m')
     // Switch to target branch
     shell.echo('\x1B[36mSwitch to ' + branch + ' branch:\x1B[0m')
@@ -118,7 +118,7 @@ function gitPush(branchs) {
     }
     shell.echo()
 
-    // Merge master to release branch
+    // Merge master to target branch
     shell.echo('\x1B[36mMerge master to ' + branch + ' branch:\x1B[0m')
     if (
       shell.exec(
@@ -154,7 +154,7 @@ function gitPush(branchs) {
   shell.echo()
 }
 
-gitPush(['release'])
+gitPush(['publish'])
 
 // upload metadata todo
 shell.echo('\x1B[36mUpload metadata:\x1B[0m')
