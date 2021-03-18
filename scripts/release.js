@@ -122,7 +122,7 @@ function gitPush(branchs) {
     shell.echo('\x1B[36mMerge master to ' + branch + ' branch:\x1B[0m')
     if (
       shell.exec(
-        'git merge master && git push --set-upstream origin ' +
+        'git merge master && git push --set-upstream ' +
           branch +
           ' --tags'
       ).code !== 0
