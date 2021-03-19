@@ -1,4 +1,4 @@
-import { logics } from "./internel/index"
+import logics from "./internel/index"
 import proto from "./hello.proto"
 
 class myService {
