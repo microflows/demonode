@@ -9,6 +9,7 @@
         "ecmaFeatures": {
             "jsx": false
         },
+        "ecmaVersion": 8,
         "sourceType": "module"
     },
     "rules": {
