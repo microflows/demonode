@@ -25,6 +25,7 @@ export default {
     proto(),
     nodePolyfills(),
     resolve({
+      browser:true,
       skipSelf: true,
       only:[/^((?!@microflows\/nodevm).)*$/]
     }),
