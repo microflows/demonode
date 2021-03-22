@@ -1,6 +1,5 @@
-const config = {
+export default {
     "cloud": "microflow.cloud",
     "tag": "service",
     "language": "javascript"
 }
-export default config
