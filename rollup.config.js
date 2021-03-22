@@ -24,7 +24,10 @@ export default {
   plugins: [
     proto(),
     nodePolyfills(),
-    resolve(),
+    resolve({
+      skipSelf: true,
+      only:[/^((?!@microflows\/nodevm).)*$/]
+    }),
     re({
       patterns: [
         {
